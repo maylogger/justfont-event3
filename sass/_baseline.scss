@@ -1,6 +1,7 @@
+$baseline-position: .15 !default;
 @mixin move-to-baseline( $font-size, $line: lines-for-font-size($font-size), $top: false ) {
   position: relative;
-  $move: ( $base-line-height * $line - $font-size * ( 0.7 - $font-size / 1000px ) ) / 2 / $font-size * 1em;
+  $move:  round( ( $base-line-height * $line - $font-size ) / 2 + ( $font-size * $baseline-position ) );
   @if $top == top {
     top: - $move;
   } @else {

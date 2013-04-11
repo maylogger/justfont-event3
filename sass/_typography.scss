@@ -1,3 +1,4 @@
+$baseline-position: .1919;
 @import "baseline";
 
 a {
@@ -15,7 +16,7 @@ p {
 h1 {
   $font-size: 24px;
   @include baseline-font-size($font-size, 1);
-  @include trailer(1, $font-size);
+  @include trailer(1);
 }
 
 h2 {
@@ -27,7 +28,7 @@ small {
   display: block;
   $font-size: 12px;
   @include baseline-font-size($font-size);
-  @include trailer(1, $font-size);
+  @include trailer(1);
   opacity: .5;
 }
 
@@ -35,7 +36,7 @@ p {
   color: #444;
   $font-size: 15px;
   @include baseline-font-size($font-size);
-  @include trailer(1, $font-size);
+  @include trailer(1);
 }
 
 .header p {
@@ -43,10 +44,10 @@ p {
 }
 
 $i: 0;
-@each $font-size in 11px, 12px, 14px, 16px, 18px, 24px, 28px, 32px {
+@each $font-size in 11px, 12px, 14px, 16px, 18px, 24px, 28px, 99px {
   .font-scale-#{$i} {
     @include adjust-font-size-to($font-size);
-    @include trailer(1, $font-size);
+    @include trailer(1);
     @include move-to-baseline($font-size);
     &:before {
       content: "#{$font-size} ";

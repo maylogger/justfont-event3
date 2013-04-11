@@ -7,9 +7,11 @@ html
     meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"
 
     = render "og"
-    link rel="stylesheet" href="stylesheets/all.css" media="screen"
+    link rel="stylesheet" media="screen" href="//fnt.webink.com/wfs/webink.css/?project=B9E9A88F-9A95-4D96-9710-90D4DEB19C42&amp;fonts=82DA4627-8191-9CE4-706C-58F3C2615A95:f=Theinhardt-Bold"
+    link rel="stylesheet" media="screen" href="stylesheets/all.css"
 
   body
-    .page= yield
+    .page
+      = yield
 
     = livereload_js unless ENV["RACK_ENV"] == "production"
