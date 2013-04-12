@@ -1,0 +1,141 @@
+$base-line-height: 24px;
+$base-font-size: 16px;
+$legacy-support-for-ie: false;
+$relative-font-sizing: false; // 讓 vertical rhythm 使用 px 單位
+$baseline-position: .19;
+$grid-background-baseline-height: $base-line-height;
+
+@import "compass";
+@import "susy";
+@import "normalize";
+@include normalize;
+@import "baseline";
+@include establish-baseline;
+
+// 基本設定
+$total-columns  : 8;
+$column-width   : 2em;
+$gutter-width   : 1.5em;
+$grid-padding   : 1em;
+
+// add media
+$ipad           : 12;
+$desktop        : 860px 14;
+
+$background: #f2540b;
+$white: #dce0d2;
+$black: rgba(black,.5);
+
+
+html,
+body {
+  font-weight: normal;
+  font-family: Theinhardt-medium, sans-serif;
+  background: $background;
+  @include at-breakpoint($desktop) {
+    background: white;
+  }
+}
+
+#{headings()} {
+  font-weight: normal;
+}
+
+%trans {
+  @include transition(.3s);
+}
+
+.page {
+  @include container($total-columns, $ipad, $desktop);
+  @include padding-leader(1);
+  @include padding-trailer(1);
+  @include at-breakpoint($desktop) {
+    padding: 0;
+    @include leader(3);
+    @include trailer(5);
+  }
+}
+
+br {
+  display: none;
+  @include at-breakpoint($ipad) {
+    display: block;
+  }
+}
+
+.page {
+  overflow: hidden;
+  background: $background;
+  @include at-breakpoint($desktop) {
+    @include box-shadow( 0 10px 10px rgba(black,.2) );
+  }
+}
+
+
+.date {
+  @extend %trans;
+  letter-spacing: .05em;
+  color: $black;
+  @include baseline-font-size(24px, 1);
+  @include at-breakpoint($ipad) {
+    @include baseline-font-size(30px, 1.5);
+    @include trailer(1);
+  }
+  @include at-breakpoint($desktop) {
+    @include push(7.6);
+    @include span-columns(6);
+    @include leader(4);
+  }
+}
+
+.address {
+  @extend %trans;
+  clear: both;
+  color: $white;
+  @include baseline-font-size(24px, 1);
+  @include at-breakpoint($ipad) {
+    @include baseline-font-size(30px, 1.5);
+    @include trailer(1);
+  }
+  @include at-breakpoint($desktop) {
+    @include leader(3);
+    @include span-columns(7);
+    @include push(1);
+  }
+}
+
+
+.title {
+  @extend %trans;
+  font-family: Theinhardt-bold, sans-serif;
+  clear: both;
+  br { display: none; }
+  @include trailer(7);
+  @include at-breakpoint($ipad) {
+    @include reset-box-model;
+    @include leader(8);
+    @include baseline-font-size(230px, 3);
+    br { display: block; }
+    margin-left: -.07em;
+    @include span-columns(7);
+    @include trailer(7);
+    span:first-child {
+      letter-spacing: -4px;
+      color: $white;
+    }
+    span:nth-child(2) {
+      color: $white;
+    }
+    span:last-child {
+      color: $black;
+    }
+  }
+  @include at-breakpoint($desktop) {
+    @include leader(10);
+    letter-spacing: -8px;
+    @include baseline-font-size(340px, 4);
+    span:first-child {
+      letter-spacing: -16px;
+    }
+  }
+}

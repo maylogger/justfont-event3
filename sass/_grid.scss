@@ -1,0 +1,47 @@
+.grid-demo {
+  padding: 48px 0;
+  .title {
+    text-align: center;
+    font-size: 50px;
+    line-height: 1;
+    padding-top: 1.5em;
+  }
+  .grid {
+    height: 600px;
+    background: rgba(white,.3);
+    border: 1px solid #ccc;
+    margin: 90px 0;
+  }
+  .fluid-grid {
+    $total-columns: 12;
+    $column-width: 4em;
+    $gutter-width: 1em;
+    $grid-padding: 1em;
+    $container-style: fluid;
+    @include container;
+    $grid-background-gutter-color: rgba($background, 1);
+    @include susy-grid-background;
+  }
+
+  .fixed-max-width {
+    $total-columns: 12;
+    $column-width: 4em;
+    $gutter-width: 1em;
+    $grid-padding: 1em;
+    $container-style: magic;
+    @include container;
+    @include susy-grid-background;
+  }
+
+  .fixed-width-precent {
+    $total-columns: 12;
+    $column-width: 4em;
+    $gutter-width: 1em;
+    $grid-padding: 1em;
+    $container-width: 60%;
+    $container-style: magic;
+    @include container;
+    @include susy-grid-background;
+  }
+
+}

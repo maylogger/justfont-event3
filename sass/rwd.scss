@@ -1,0 +1,60 @@
+$background: #d9dfd1;
+$grid-background-column-color: rgba(black,.1); // 格線顏色
+$grid-background-baseline-color: rgba(#009a8e,.3); // 行線顏色
+$grid-background-gutter-color: rgba($background, .1); // 溝槽顏色
+
+@import "compass";
+@import "susy";
+@import "normalize";
+@include normalize;
+
+// 基本設定
+$total-columns  : 5; // 預設 5 欄
+$column-width   : 5em;
+$gutter-width   : 1.5em;
+$grid-padding   : 3em;
+
+// add media
+$ipad           : 769px 8;
+$desktop        : 961px 12;
+
+html,
+body {
+  background: #d9dfd1;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#{headings()} {
+  font-weight: normal;
+  font-family: Theinhardt-bold, sans-serif;
+}
+
+.title {
+  text-align: center;
+  font-size: 32px;
+  line-height: 1;
+  padding-top: 1em;
+  margin: 0;
+  @include transition(.5s);
+  @include at-breakpoint($ipad) {
+    font-size: 60px;
+  }
+  @include at-breakpoint($desktop) {
+    font-size: 90px;
+  }
+}
+
+.page {
+  @include container($total-columns, $ipad, $desktop);
+  height: 100%;
+  @include susy-grid-background;
+  @include at-breakpoint($ipad) {
+    @include susy-grid-background;
+  }
+  @include at-breakpoint($desktop) {
+    @include susy-grid-background;
+  }
+}

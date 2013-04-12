@@ -1,0 +1,154 @@
+$base-line-height: 24px;
+$base-font-size: 16px;
+$legacy-support-for-ie: false;
+$relative-font-sizing: false; // 讓 vertical rhythm 使用 px 單位
+$baseline-position: .19;
+$grid-background-baseline-height: $base-line-height;
+
+@import "compass";
+@import "susy";
+@import "normalize";
+@include normalize;
+@import "baseline";
+@include establish-baseline;
+
+// 基本設定
+$total-columns  : 8;
+$column-width   : 2em;
+$gutter-width   : 1.5em;
+$grid-padding   : 1em;
+
+// add media
+$ipad           : 12;
+$desktop        : 860px 15;
+
+$background: #ec1d25;
+$white: #d9dfd1;
+$black: #000115;
+$color1: #41363a;
+$color2: #008f85;
+
+
+html,
+body {
+  font-weight: normal;
+  font-family: Theinhardt-medium, sans-serif;
+  background: $background;
+  overflow-x: hidden;
+  @include at-breakpoint($desktop) {
+    background: white;
+  }
+}
+
+#{headings()} {
+  font-weight: normal;
+  @include reset-box-model;
+}
+
+%trans {
+  @include transition(.3s);
+}
+
+.page {
+  @include container($total-columns, $ipad, $desktop);
+  @include padding-leader(1);
+  @include padding-trailer(1);
+  @include at-breakpoint($desktop) {
+    padding: 0;
+    @include leader(3);
+    @include trailer(5);
+  }
+}
+
+br {
+  display: none;
+  @include at-breakpoint($ipad) {
+    display: block;
+  }
+}
+
+.page {
+  background: $background;
+  @include at-breakpoint($desktop) {
+    @include box-shadow( 0 10px 10px rgba(black,.2) );
+  }
+}
+
+.square {
+  @extend %trans;
+  background: $white;
+  position: relative;
+}
+.left-top {
+  @extend %trans;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: $background transparent transparent transparent;
+}
+.circle {
+  @extend %trans;
+  @include border-radius(9999px);
+  background: $color2;
+  @include transform( rotate(-45deg) );
+  .circle-top {
+    @extend %trans;
+    background: $color1;
+    @include border-radius(9999px 9999px 0 0);
+  }
+}
+
+
+
+
+.title {
+  @extend %trans;
+  font-family: Theinhardt-bold, sans-serif;
+  @include baseline-font-size(40px);
+  @include trailer(1);
+  @include at-breakpoint($ipad) {
+    @include baseline-font-size(80px);
+    @include trailer(3);
+  }
+  @include at-breakpoint($desktop) {
+    @include baseline-font-size(100px, 4);
+    text-indent: .2em;
+  }
+}
+
+.cols {
+  @include trailer(2);
+  @include pie-clearfix;
+  @include at-breakpoint($desktop) {
+    padding: 0 1.8em;
+  }
+}
+[class^=col] {
+  @extend %trans;
+  color: $black;
+  @include baseline-font-size(16px);
+  @include trailer(1);
+}
+.col1,
+.col2 {
+  @include at-breakpoint($ipad) {
+    @include span-columns(4);
+  }
+  @include at-breakpoint($desktop) {
+    @include span-columns(5);
+  }
+}
+
+.col3 {
+  @include at-breakpoint($ipad) {
+    @include span-columns(4 omega);
+  }
+  @include at-breakpoint($desktop) {
+    @include span-columns(5 omega);
+  }
+}
+
