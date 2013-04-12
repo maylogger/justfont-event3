@@ -1,6 +1,16 @@
 // 設定 extension 參數
+$background: #d9dfd1;
+$base-line-height: 24px;
+$base-font-size: 16px;
 $legacy-support-for-ie: false;
-$relative-font-sizing: false;
+$relative-font-sizing: false; // 讓 vertical rhythm 使用 px 單位
+$grid-background-column-color: rgba(black,.1); // 格線顏色
+$grid-background-baseline-color: rgba(#009a8e,.3); // 行線顏色
+$grid-background-gutter-color: rgba($background, .1); // 溝槽顏色
+$grid-background-baseline-height: $base-line-height;
+// 給移動 baseline 設定
+$baseline-position: .18; // 選不同的字體要微調 尤其是 webfont
+@import "baseline";
 
 // 基本 extension 引入
 @import "compass";
@@ -11,14 +21,41 @@ $relative-font-sizing: false;
 
 
 // 設定基本字體與文字高度
-body { font-family: Theinhardt-Bold, sans-serif; vertical-align: baseline; }
+body { font-family: Theinhardt-Regular, sans-serif; vertical-align: baseline; }
 @include establish-baseline;
 
 // 良好文字排版
-@import "typography";
-
+.content {
+  @import "typography";
+}
 
 // 引入總布局
 @import "layout";
+@import "layout-debug";
+
+// 引入部件
+@import "header";
+
+// 特殊頁面 layout
+@import "home";
+@import "demo";
 
 
+// 全站共通設定
+a {
+  @include unstyled-link;
+  @include link-colors(#a00, lighten(#a00, 10%));
+
+}
+
+// 設定 h1 – h6, p 邊界為 0 且不要粗體
+#{headings()},
+p {
+  margin: 0;
+  font-weight: normal;
+}
+
+// 設定全站 h1 - h6 粗體字型
+#{headings()} {
+  font-family: Theinhardt-bold, sans-serif;
+}

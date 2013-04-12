@@ -1,0 +1,26 @@
+.header {
+  h1 {
+    @include padding-leader(2);
+    @include padding-trailer(1);
+    @include baseline-font-size(15px);
+    @include at-breakpoint($ipad) {
+      @include baseline-font-size(24px, 1);
+      @include padding-leader(6);
+    }
+  }
+  .welcome {
+    @include pie-clearfix;
+    @include reset-box-model;
+    @include baseline-font-size(50px, 2);
+    @include leader(-1);
+    @include at-breakpoint($ipad) {
+      @include baseline-font-size(90px, 3);
+    }
+    span {
+      margin-right: .2em;
+      display: block;
+      float: left;
+      @include nowrap;
+    }
+  }
+}

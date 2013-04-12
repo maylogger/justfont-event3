@@ -1,16 +1,32 @@
-- paragraph = lorem_paragraphs 2
-- zh_paragraph = zh_lorem_paragraphs 2
+.row
+  h2 CSS
+  .demo-section
+    h3= link_to "CSS Font", "/demo/1.html"
 
-.header
-  h1= link_to data["site-title"], "https://github.com/evenwu/fireapp-susy-demo"
-  p 試著縮放瀏覽器寬度、字體大小，永遠都能對齊。滑鼠移開視窗可以隱藏格線。
-  small chrome 的背景格線有誤，但不影響排版。
-  - 8.times do |n|
-    div class="font-scale-#{n}" 永東茶國
+  .demo-section
+    h3= link_to "Box-model", "/demo/2.html"
 
-.columns
-  - 6.times do |n|
-    .column
-      h2= "第 #{n+1} 欄"
-      p= paragraph
-      p= zh_paragraph
+  .demo-section
+    h3= link_to "Vertical Rhythm", "/demo/3.html"
+
+  .demo-section
+    h3= link_to "Baseline", "/demo/4.html"
+
+  .demo-section
+    h3= link_to "CSS Sharp", "http://css-tricks.com/examples/ShapesOfCSS/"
+
+.row
+  h2 Grid
+  .demo-section
+    h3= link_to "Grid System", "/demo/6.html"
+
+  .demo-section
+    h3= link_to "Fluid Grid System", "/demo/7.html"
+
+  .demo-section
+    h3= link_to "Responsive Grid System", "/demo/8.html"
+
+.row
+  h2 Final Demo
+  .demo-section
+    h3= link_to "Demo", "/demo/9.html"

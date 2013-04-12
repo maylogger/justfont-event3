@@ -6,24 +6,23 @@ html
     meta charset="utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"
 
-    = render "og"
+    = render "/og"
     link rel="stylesheet" media="screen" href="//fnt.webink.com/wfs/webink.css/?project=B9E9A88F-9A95-4D96-9710-90D4DEB19C42&fonts=BA766C3D-9F83-4950-AFCD-AD9F2BF5CEAB:f=Theinhardt-Regular,82DA4627-8191-9CE4-706C-58F3C2615A95:f=Theinhardt-Bold"
-    link rel="stylesheet" media="screen" href="stylesheets/all.css"
+    link rel="stylesheet" media="screen" href="/stylesheets/all.css"
 
     css:
       .balance-text {
         text-wrap: balanced;
       }
 
-  body.home
+  body.demo
     .page
       = render "header"
       .content= yield
-      - # = render "footer"
-
+      - # = render "/footer"
     = javascript_include_tag \
       "//code.jquery.com/jquery-1.9.1.min.js", \
-      "jquery.balancetext"
-
+      "jquery.balancetext", \
+      "site"
     = livereload_js unless ENV["RACK_ENV"] == "production"
 

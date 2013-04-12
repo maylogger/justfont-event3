@@ -2,7 +2,7 @@
 $total-columns  : 5; // 預設 5 欄
 $column-width   : 5em;
 $gutter-width   : 1.5em;
-$grid-padding   : 1em;
+$grid-padding   : 3em;
 
 // add media
 $ipad           : 641px 8;  // min-width 641px 寬度超過 641px 後的欄位數量
@@ -12,49 +12,30 @@ $desktop        : 941px 12; // min-width 941px 寬度超過 941px 後的欄位�
 body {
   background: #d9dfd1;
   margin: 0;
-  padding: 0;
 }
 .page {
   @include container($total-columns, $ipad, $desktop);
   @include pie-clearfix;
+  // min-height: 1080px;
 }
 
 // 做版面
 // 一般版（mobile first）
-.header {
-  @include padding-leader(1);
+
+.footer {
+  @include pie-clearfix;
 }
-.columns {
-  @include leader(1);
+
+.content {
+  @include padding-leader(1);
 }
 
 // iPad 版本
 @include at-breakpoint($ipad) {
-  .column {
-    @include span-columns(4);
-    @include nth-omega(2n);
-  }
+
 }
 
 // Desktop 版本
 @include at-breakpoint($desktop) {
-  .header {
-    @include span-columns(3);
-    [class^=font-scale-] {
-      @include ellipsis;
-    }
-  }
-  .columns {
-    @include span-columns(9 omega);
-  }
-  .column {
-    @include remove-nth-omega(2n, child ,9);
-    @include span-columns(3, 9);
-    @include nth-omega(3n);
-  }
-}
 
-// 幫助排版的背景，可以拿掉
-body {
-  @import "layout-debug";
 }

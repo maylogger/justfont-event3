@@ -1,0 +1,51 @@
+.home .content {
+  h2 {
+    $font-size: 28px;
+    @include baseline-font-size($font-size, 1);
+    @include trailer(1);
+  }
+  .row {
+    @include leader(1);
+    @include padding-trailer(1);
+    @include at-breakpoint($ipad) {
+      @include span-columns(4);
+      @include nth-omega(2n);
+    }
+    @include at-breakpoint($desktop) {
+      @include span-columns(4);
+      @include remove-nth-omega(2n);
+      @include nth-omega(3n);
+    }
+  }
+  .row {
+    $grid-background-baseline-height: $base-line-height / 2;
+    background-color: $background;
+    @include baseline-grid-background;
+    @include box-sizing(border-box);
+    border: 1px solid $grid-background-baseline-color;
+    border-width: 0 1px;
+  }
+  .demo-section {
+    h3 {
+      font-family: Theinhardt-Regular, sans-serif;
+      $font-size: 20px;
+      @include baseline-font-size($font-size, 1);
+      @include trailer(.5);
+      a {
+        display: block;
+        @include transition(padding-left .1s);
+        &:hover {
+          padding-left: $base-line-height / 2;
+        }
+      }
+    }
+    &:last-child h3 {
+      @include trailer(0);
+    }
+  }
+
+
+}
+
+
+

@@ -1,0 +1,125 @@
+- english = "Qui aut id et labore corrupti ut corporis assumenda iure placeat quas at libero magni. rerum beatae qui perferendis soluta enim iusto et eos nam aut nesciunt commodi id. minus nihil repudiandae perferendis dolor aut quia. consequatur velit aut nihil ut fuga sunt dolorem. architecto necessitatibus iste eaque dolorem"
+- chinese = "他倆便也攜著手，把我們龍頭割去！便把眼皮睜開。沒有年歲，所以也不擔心到，覺得分外悠遠，有點疲憊！來和他們一拚！在這時候，憑我們有這一身，也有他們一種曆，能夠合官廳的意思，也不上你的甜！要開始了。這一句千古名言，在煙縷繚繞的中間，短褲短袖。又受了他們一頓罵！"
+- chinese_long = "他倆便也攜著手，把我們龍頭割去！便把眼皮睜開。沒有年歲，所以也不擔心到，覺得分外悠遠，有點疲憊！來和他們一拚！在這時候，憑我們有這一身，也有他們一種曆，能夠合官廳的意思，也不上你的甜！要開始了。這一句千古名言，在煙縷繚繞的中間，短褲短袖。又受了他們一頓罵！他倆便也攜著手，把我們龍頭割去！他倆便也攜著手，把我們龍頭割去！"
+- chinese_short = "他倆便也攜著手，把我們龍頭割去！便把眼皮睜開。沒有年歲，所以也不擔心到，覺得分外悠遠，有點疲憊！來和他們一拚！在這時候，憑我們有這一身。"
+
+section
+  h2 Baseline alignment
+  markdown:
+    請參考 <http://evenwu.github.com/fireapp-susy-demo/>
+  .row
+    .side
+      code: pre
+        | .col1 p {
+            @include adjust-font-size-to(16px);
+            @include trailer(1);
+          }
+          .col2 p {
+            @include adjust-font-size-to(12px);
+            @include trailer(1);
+          }
+    .main
+      .demo-3-1
+        .col1
+          p= english
+          p= chinese
+        .col2
+          p= english
+          p= chinese_long
+  .row
+    .side
+      code: pre
+        | .col1 p {
+            @include baseline-font-size(16px);
+            @include trailer(1);
+          }
+          .col2 p {
+            @include baseline-font-size(12px);
+            @include trailer(1);
+          }
+    .main
+      .demo-4-1
+        .col1
+          p= english
+          p= chinese
+        .col2
+          p= english
+          p= chinese_long
+  .row
+    .side
+      code: pre
+        | .col1 p {
+            @include adjust-font-size-to(16px);
+            @include trailer(1);
+          }
+          .col2 p {
+            @include adjust-font-size-to(12px, 1/2);
+            @include trailer(1);
+          }
+    .main
+      .demo-3-2
+        .col1
+          p= english
+          p= chinese
+        .col2
+          p= english
+          p= chinese_long
+          p= english
+  .row
+    .side
+      code: pre
+        | $baseline-position: 0;
+          .col1 p {
+            @include baseline-font-size(16px, 1, top);
+            @include trailer(1);
+          }
+          .col2 p {
+            @include baseline-font-size(12px, 2/3, top);
+            @include trailer(1);
+          }
+    .main
+      .demo-4-2
+        .col1
+          p= english
+          p= chinese
+        .col2
+          p= english
+          p= chinese_long
+          p= english
+  .row
+    .side
+      code: pre
+        | .col1 p {
+            @include adjust-font-size-to(16px);
+            @include trailer(1);
+          }
+          .col2 p {
+            @include adjust-font-size-to(12px, 1);
+            @include trailer(1);
+          }
+    .main
+      .demo-3-3
+        .col1
+          p= chinese_short
+        .col2
+          p= english
+          p= chinese
+  .row
+    .side
+      code: pre
+        | $baseline-position: .15;
+          .col1 p {
+            @include baseline-font-size(32px);
+            @include trailer(1);
+          }
+          .col2 p {
+            @include baseline-font-size(16px);
+            @include trailer(1);
+          }
+    .main
+      .demo-4-3
+        .col1
+          p= chinese_short
+        .col2
+          p= english
+          p= chinese
