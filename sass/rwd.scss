@@ -9,14 +9,14 @@ $grid-background-gutter-color: rgba($background, .1); // 溝槽顏色
 @include normalize;
 
 // 基本設定
-$total-columns  : 5; // 預設 5 欄
+$total-columns  : 8; // 預設 5 欄
 $column-width   : 5em;
 $gutter-width   : 1.5em;
 $grid-padding   : 3em;
 
 // add media
 $ipad           : 769px 8;
-$desktop        : 961px 12;
+$desktop        : 961px 24;
 
 html,
 body {

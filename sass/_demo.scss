@@ -63,15 +63,15 @@ body.demo {
 }
 .demo-1-1-4 {
   @extend %reset;
-  font-family: Helvetica, Arial,sans-serif;
+  font-family: Theinhardt-bold, Arial, sans-serif;
 }
 .demo-1-1-5 {
   @extend %reset;
-  font-family: PMingLiu, Helvetica, Arial, sans-serif;
+  font-family: PMingLiu, Theinhardt-bold, Arial, sans-serif;
 }
 .demo-1-1-6 {
   @extend %reset;
-  font-family: Helvetica, Arial, PMingLiu, sans-serif;
+  font-family: Theinhardt-bold, Arial, PMingLiu, sans-serif;
 }
 
 .demo-1-2-1 {
@@ -218,11 +218,11 @@ body.demo {
   }
 }
 
-
+// vertical rhythm 垂直節奏
 .demo-3-1 {
   @extend %reset;
   .col1 p {
-    @include adjust-font-size-to(16px);
+    @include adjust-font-size-to(16px); // 16px, 12px, 15px, 24px, 32px
     @include trailer(1);
   }
   .col2 p {
